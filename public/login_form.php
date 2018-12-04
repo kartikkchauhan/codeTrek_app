@@ -6,12 +6,12 @@
        <div class="d-flex justify-content-center mb-3 flex-column flex-md-row">
          
           <div class="d-flex flex-column flex-md-row">
-            <form class="form-block my-2 my-lg-0 mr-md-3">
+            <form class="form-block my-2 my-lg-0 mr-md-3" method="post" action="login_user.php">
 
               <div class="row form-inline mb-3">
                 <div class="row">
                   <div class="col-md-12 input-group">
-                    <input class="form-control" type="text" placeholder="Enter Email or Username" aria-label="username or email">
+                    <input class="form-control" type="email" name="email" placeholder="Enter Email or Username" aria-label="username or email">
                   </div>
                 </div>
                 
@@ -20,7 +20,7 @@
               <div class="row form-inline mb-3">
                 <div class="row">
                   <div class="col-md-12 input-group">
-                    <input class="form-control" type="text" placeholder="Enter Password" aria-label="Password">
+                    <input class="form-control" type="password" name="password" placeholder="Enter Password" aria-label="Password">
                   </div>
                 </div>
               </div>

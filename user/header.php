@@ -10,13 +10,14 @@
     src="https://code.jquery.com/jquery-3.3.1.min.js"
     integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
     crossorigin="anonymous"></script>
+    <script type="text/javascript" src="js/user_functions.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
   </head>
   <body>
-    <nav class="navbar sticky-top navbar-expand-lg navbar-dark bg-dark">
+  <nav class="navbar sticky-top navbar-expand-lg navbar-dark bg-dark">
     <div class="container">
-      <a class="navbar-brand" href="#">CodeTrek Forum</a>
+      <a class="navbar-brand" href="index.php">CodeTrek Forum</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
        aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -34,9 +35,20 @@
              aria-expanded="false">
               <i class="fa fa-cog"></i>
             </a>
+            <?php
+              include_once('../config.php');
+              $query=mysqli_query($con,"SELECT * FROM `users` WHERE `id` = '$_SESSION[user]' ");
+
+              $row = $query->fetch_assoc();
+            ?>
             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <a class="dropdown-item" href="Login.php">Login</a>
-              <a class="dropdown-item" href="Signup.php">Signup</a>
+              <div class="dropdown-item disabled"><?= $row['name'] ?></div>
+              <div class="dropdown-divider"></div>
+              <a class="dropdown-item" href="#">My Profile</a>
+              <a class="dropdown-item" href="#">Settings</a>
+              <div class="dropdown-divider"></div>
+              <a class="dropdown-item" href="logout.php">Sign out</a>
+            </div>
           </li>
         </ul>
       </div>

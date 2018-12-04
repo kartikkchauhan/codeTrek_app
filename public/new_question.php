@@ -1,3 +1,12 @@
-<?= include("header.php") ?>
-<?= include("new_questionBody.php") ?>
-<?= include("footer.php") ?>
+<?php
+	session_start();
+	if (isset($_SESSION['user'])) 
+	{  
+
+		header("location: ../user/new_question.php");
+		
+	} 
+
+	header("location: Login.php");
+	
+?>

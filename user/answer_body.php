@@ -140,4 +140,17 @@
         	}
         ?>
 
+
+		<div class="card mb-4 shadow-sm">
+			<div class="card-body">
+				<form action="submit_Answer.php" method="POST">
+					<input type="hidden" name="question_Id" value="<?= $question_Id ?>">
+					<div class="form-group">
+						<h4 class="mb-4">Your Answer</h4>
+						<textarea name="yourAnswer" id="yourAnswer" rows="5" class="form-control" placeholder="Enter Your Answer Here." required></textarea>
+					</div>
+					<button type="submit" class="btn btn-primary mt-3">Post your Answer</button>
+				</form>
+			</div>
+		</div>
 	</div>

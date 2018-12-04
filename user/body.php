@@ -78,11 +78,46 @@
             </p>
             <div class="d-flex text-secondary">
               <div class="mr-3">
-                <i class="far fa-thumbs-up"></i>
+                <script type="text/javascript">
+                  function like<?= $row["question_Id"] ?>(){
+
+                   
+
+                    var questionId = "<?= $row["question_Id"] ?>";
+
+                    alert(questionId);
+
+                    $.ajax({
+                      type : "POST",
+                      url : "home/loginProcess",
+                      data : { "questionId" : questionId, },
+                      success : function(data)
+                      {
+                        
+                        if(data == "TRUE")
+                        {
+                          $("#<?= $row["question_Id"] ?>").css({"color": "yellow"});
+                        }
+                        else
+                        {
+                          alert("cant like question");
+                        }
+                      }
+                    })
+
+                  }
+                </script>
+                <i class="far fa-thumbs-up" id="<?= $row["question_Id"] ?>" onclick="like<?= $row["question_Id"] ?>();" style="cursor: pointer;"></i>
                 <small>14</small>
               </div>
               <div class="mr-3">
-                <i class="far fa-thumbs-down"></i>
+                <script type="text/javascript">
+                  function disLike<?= $row["question_Id"] ?>(){
+
+                    alert("<?= $row["question_Id"] ?>");
+                  }
+                </script>
+                <i class="far fa-thumbs-down" onclick="disLike<?= $row["question_Id"] ?>();" style="cursor: pointer;"></i>
                 <small>1</small>
               </div>
               <div class="mr-3">
